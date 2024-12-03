@@ -1,0 +1,359 @@
+\documentclass[fleqn,10pt]{wlscirep}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{comment}
+\usepackage[backend=biber,natbib,style=apa,autocite=inline]{biblatex}
+\addbibresource{sample.bib}
+\bibliography{sample.bib}
+\title{Functional Connectivity Gradients in Stroke}
+
+\author[1,*]{Alice Author}
+\author[2]{Bob Author}
+\author[1,2,+]{Christine Author}
+\author[2,+]{Derek Author}
+\affil[1]{Affiliation, department, city, postcode, country}
+\affil[2]{Affiliation, department, city, postcode, country}
+
+\affil[*]{corresponding.author@email.example}
+
+\affil[+]{these authors contributed equally to this work}
+
+%\keywords{Keyword1, Keyword2, Keyword3}
+
+\begin{abstract}
+Example Abstract. Abstract must not include subheadings or citations. Example Abstract. Abstract must not include subheadings or citations. Example Abstract. Abstract must not include subheadings or citations. Example Abstract. Abstract must not include subheadings or citations. Example Abstract. Abstract must not include subheadings or citations. Example Abstract. Abstract must not include subheadings or citations. Example Abstract. Abstract must not include subheadings or citations. Example Abstract. Abstract must not include subheadings or citations.
+\end{abstract}
+\begin{document}
+
+\flushbottom
+\maketitle
+% * <john.hammersley@gmail.com> 2015-02-09T12:07:31.197Z:
+%
+%  Click the title above to edit the author information and abstract
+%
+\thispagestyle{empty}
+
+\noindent Please note: Abbreviations should be introduced at the first mention in the main text – no abbreviations lists. Suggested structure of main text (not enforced) is provided below.
+
+\section*{Introduction}
+
+Resting-state (RS) BOLD reflects the temporal neural dynamics in an indirect way. However, metabolic blood flow can be also observed via the same data. \citet{mitra2014lag} It is important to distinguish if RS actually reflects the coherence due to the blood flow or neural dynamics. Temporal lag correction based on a reference time series (global signal - GS or venous sinuses) is a common method to examine the source of the BOLD signal. BOLD time series is time-shifted to the point that maximizes the correlation with the reference signal. It was shown that this correction increases the strength of the functional connectivity. The increased strength implies that the reference time series actually reflects the metabolical blood flow, and reordering the time series is a necessary preprocessing step like motion correction, slice-time correction etc... Most common reference signal is the GS, which is related to negative correlations across regions after correction. 
+
+It is well-reported that GS correction of the RS data introduces negative correlations. It was shown that these negative correlations are related to the temporal order of the other BOLD series. GS reflects the mean BOLD activity and the metabolic flow. Therefore, voxels that are later in the metabolic order show negative correlations with the earlier ones after GS correction. Another study used venous sinuses, and they found similar results too. However, Removing GS after correcting for temporal lag was shown to eliminate the negative correlations caused by the metabolic blood flow and accounted for the mean neural activity only. However, the internal carotid artery (ICA) is the area that feeds the brain. Therefore, the reference signal should be BOLD activity from ICA. 
+
+
+Temporal dynamics of the BOLD signal show the intracranial metabolic blood flow. Resting state networks also point out this order of blood flow up to some extent. It is important to differentiate this metabolic blood flow and blood flow due to the neural activity. 
+
+Ischemic stroke is a case of lack of blood flow to arteries in the brain. Lack of blood flow even for a short time causes abnormal neural dynamics and if it lasts long enough, neural death is unavoidable. The region that suffers from the lack of blood flow will be infarcted, and there is a chance that the surrounding region will be swollen. The change in the metabolism of the brain is associated with a wide range of neural and behavioral dysfunctions e.g. motor dysfunction and hemispheric imbalance in the motor activity during the relevant behavioral task. There are also many functional connectivity differences reported both in rest- and task-based fMRI.
+
+
+It is possible to track the abnormalities in the blood flow in ischemic stroke cases via rs-FMRI. Temporal BOLD delay in reference to the GS reveals the infarcted regions. In line with the lag-correction studies of healthy subjects, blood supply is even more delayed in stroke-related regions. Therefore, lag correction would eliminate the negative correlations/associations sourced from delayed blood flow in stroke regions and reflect the neural differences more accurately. Delayed blood flow in the stroke-affected regions makes sense because ischemic stroke causes cessation of blood flow and ideally, BOLD signal from such areas should have zero variance as there is no activity. However, thanks to the collateral blood supply and recovery of the affected arteries, blood flow is still going on but slower/at a lower frequency than the regular cycle. 
+
+Functional connectivity gradients reveal the structural-functional organization of the brain. In case of stroke, this organization may be altered. 
+
+In this paper, we hypothesize that adjusting the BOLD signal from the infarcted regions in reference to the global signal will decrease the atrophy in the functional connectivity gradients between stroke patients and healthy controls.
+
+\textcolor{red}{Ideas for other papers or additions to this paper:
+\begin{itemize}
+    \item Check if the BOLD difference in stroke is due to time lags only or also due to slow oscillations
+    \item Check if the lag difference can be better identified with ICA as the reference signal
+    \item Check phase difference: What is the phase to build the successful gradient, and how this phase is different in stroke regions
+    \item What is the extent of the neural changes in the "unaffected brain"? Create an unaffected brain map by accounting for the structural, functional, and arterial connectivity map of the stroke region.
+    \item Longitudinal changes: how the brain recovers the gradients across across time. This can be calculated via Euclidian difference of each point in the embedding space. The dispersion will decrease over time.
+    \item Use the lag-maps for automatic segmentation or predicting behavioral deficits using deep learning
+    \item Hemispheric difference: extend the presentation for JU. 
+    \item source of the time lag: arterial concentration, vessel diameter, flow time? 
+\end{itemize}
+}
+
+
+
+\begin{comment}
+Effect of stroke is unique across each participant because location, extend, and the recovery of the damage are unique to each patient. Therefore, investigating the effect of stroke at the group level would not show the real interaction/plasticity of the brain. If the goal of this line of research is to understand brain dynamics by observing the complications in the brain (like reverse engineering) and understanding their behavioral outcomes, every unique case must be examined individually. 
+
+Ischemic stroke is a case of lack of blood flow to arteries in the brain. Lack of blood flow even for a short time causes abnormal neural dynamics and if it lasts long enough, neural death is unavoidable. The region that suffers from the lack of blood flow will be infarcted, and there is a chance that the surrounding region will be swollen. The change in the metabolism of the brain is associated with a wide range of behavioral dysfunctions, The most common one is motor problems as ischemic stroke most often occurs in the subcortex. 
+
+After the damage occurs, every individual brain will react in a different way, depending on the exact location (e.g. which specific arteries), and magnitude (number of arteries affected). Recovery period will be also unique based on the existence of the collateral arteries that will supply blood to the infarcted area, whether the patient went through a rehabilitative/recanalization operation, Therefore, after this complex unique process, brain dynamics must be approached as a new system rather than a broken version of the typical one. Therefore, for the following analysis, the whole brain must be considered rather than leaving out the damaged area. 
+
+Although stroke damage is focal, it has a larger extent thanks to the structural, functional, and vascular connections. Structural connections include white material connectivity. Neurons have short- and long-distance connections among different regions through white matter fibers. Damage to a specific area will affect all those neurons that are structurally connected. Functional connectivity is the temporal coherence among different neurons, measured via BOLD signal with fMRI. Research on the typical brain activity during the resting state has systematically shown that there are regions that are temporally coherent and they are not necessarily connected with white matter fibers.  The measure of this temporal coherence is the BOLD signal, which is the oxygenation of the blood cells due to neural activity. Therefore, a lack of blood flow would also affect this temporal correlation. If the result of stroke damage is cell death, theoretically, BOLD signal from that region (or voxel, with fmri terminology) would be zero. However, it has been shown that even in the stroke core, there is always an extent of BOLD signal. Perfusion studies using fMRI showed affected regions can be detected via temporal differences in BOLD activity. This brings us to the vascular connectivity. Collateral arteries to the stroke core will try to help the damaged region by carrying oxygen/blood to the area. Since the BOLD signal will be weaker, their temporal dynamics can give away the voxels whose BOLD signals are altered.  
+
+Getting deeper on this topic, temporal dynamics of the bold also show the intracranial metabolic blood flow. Resting state networks also point out this order of blood flow up to some extent. It is important to differentiate this metabolic blood flow and blood flow due to the neural activity. 
+
+Functional connectivity gradients reveal the structural-functional organization of the brain. In case of stroke, this organization may be altered. The extent of the alteration may be related to the behavioral outcomes, vascular, functional, structural, hemispheric connections. It is important to focus on the heterogeneity among the results. 
+
+Lateralization is also important, it was shown that brain balances itself on the other hemisphere in case of stroke.
+\end{comment}
+\section*{Methods}
+\subsection*{Dataset details}
+The dataset was collected by the School of Medicine
+of the Washington University in St. Louis and complete procedures can be found in \cite{corbetta2015common}. They collected MRI data and behavioral examinations of stroke patients and healthy controls. Stroke patients were registered according to the following criteria: 
+\begin{itemize}
+    \item The subject must be older than 18 years of age,
+    \item The subject must have no history of stroke until the current one,
+    \item The stroke must have up to two lacunes, be clinically silent, less than 15 mm in size on CT scan,
+    \item Existence of clinical evidence for motor, language, attention, visual, or memory deficits based on neurological examination,
+    \item The onset of stroke must be shorter than 2 weeks during the time of the scan,
+    \item The subject must be awake, alert, and capable of participating in research.
+\end{itemize}
+
+The behavioral examination includes five main batteries that consist of various tests (the full list of tests is available in \citet{corbetta2015common}). These batteries measure the performance of the motor, linguistic, executive function, memory, and attentional capabilities. 
+
+The imaging data consists of structural and functional MRI at three different time points for stroke patients (1-2 weeks, 3 months, 12 months after stroke), and 2 time points for control patients (initial scan and 3 months later). Structural scans include T1-weighted, T2-weighted, and diffusion tensor images. Functional images include a resting state paradigm (\textcolor{red}{eyes open/closed?}).  Scanning was performed with a Siemens 3T Tim-Trio scanner at the School of Medicine of the Washington University in St. Louis including structural, functional, and diffusion tensor scans. Structural scans consisted of: (1) a sagittal MP-RAGE T1-weighted image (TR=1950 msec, TE=2.26 msec, flip angle=9 deg, voxel size=1.0 x 1.0 x 1.0 mm, slice thickness = 1.00 mm); (2) a transverse turbo spin-echo T2-weighted image (TR=2500 msec, TE=435 msec, voxel-size=1.0 x 1.0 x 1.0 mm, slice thickness = 1.00 mm); and (3) a sagittal FLAIR (fluid-attenuated inversion recovery) (TR=7500 msec, TE=326 msec, voxel-size=1.5 x 1.5 x 1.5 mm, Slice thickness = 1.50 mm). Functional images consisted of 1-7 resting state runs for each session (TR=2000 msec, TE=27 msec, voxel-size= 4 x 4 x 4 mm, slice thickness = 4 mm, total duration = 256 seconds for each run). 
+
+\subsection*{Preprocessing of the imaging data}
+The dataset was received in DICOM format. Conversion from DICOM to NIFTI format was achieved by an in-house script that operates on Python \citep{rogetgithub}. Then, the files were organized according to the BIDS specifications. In this step, sessions with duplicate scans (back-to-back scanning of any modality) were manually checked by two independent researchers. The scan with lower quality was discarded from future analyses. It was seen that multiple scanning happened only when the first scan had low quality. Runs that have no T1 or at least one RS scan were removed.  Additionally, some RS scans were identical, labeled as \textit{"motion reference/moco"}, and removed. Stroke subjects without acute scans were removed too. \textcolor{red}{I need to check the last sentence}
+
+The dataset (organized in BIDS format, bad quality / duplicate scans removed), was preprocessed with \emph{fmriprep} \citep{fmriprep1} on a supercomputer using \emph{Apptainer} (formerly known as \emph{Singularity}, \cite{kurtzer2017singularity}). Although the dataset has an unusual sample, algorithms included in fmriPrep work well even with stroke data, as they did in other studies  (\textcolor{red}{references}). \emph{fmriprep} has two options to deal with subjects with multiple sessions (or T1 images available): either it aligns all sessions to the T1 of the first session, or it creates an unbiased T1 image using the available ones and aligns all the sessions to this available image (most suitable for longitudinal designs). However, since the population of this dataset is unique, and each session is quite different than the other ones as the stroke-related damage recovers over time (Figure 1), we decided to treat every session independently. In other words, functional images of each session were aligned to their respective T1 image, which then was aligned to the standard template. In order to achieve this, the dataset was divided into 3 (first/acute sessions, second sessions, third sessions), and \emph{fmriprep} \citep{fmriprep1} was run on them separately. 
+
+Results included in this manuscript come from preprocessing performed
+using \emph{fMRIPrep} 23.1.3 (\citet{fmriprep1}; \citet{fmriprep2};
+RRID:SCR\_016216), which is based on \emph{Nipype} 1.8.6
+(\citet{nipype1}; \citet{nipype2}; RRID:SCR\_002502).
+
+\subsubsection*{Anatomical data preprocessing}
+The T1-weighted (T1w) images were corrected for intensity non-uniformity (INU) with \texttt{N4BiasFieldCorrection} \citep{n4},
+distributed with ANTs \citep[RRID:SCR\_004757]{ants},
+and used as T1w-reference throughout the workflow. The T1w-reference was
+then skull-stripped with a \emph{Nipype} implementation of the
+\texttt{antsBrainExtraction.sh} workflow (from ANTs), using OASIS30ANTs
+as target template. Brain tissue segmentation of cerebrospinal fluid
+(CSF), white-matter (WM) and gray-matter (GM) were performed on the
+brain-extracted T1w using \texttt{fast} \citep[FSL,
+RRID:SCR\_002823,][]{fsl_fast}. Volume-based spatial normalization to
+one standard space (MNI152NLin2009cAsym) was performed through nonlinear
+registration with \texttt{antsRegistration} (ANTs),
+using brain-extracted versions of both T1w reference and the T1w
+template. \emph{ICBM 152 Nonlinear Asymmetrical
+template version 2009c} {[}\citet{mni152nlin2009casym},
+RRID:SCR\_008796; TemplateFlow ID: MNI152NLin2009cAsym{]} template was selected for spatial
+normalization and accessed with \emph{TemplateFlow}
+\citep[23.0.0,][]{ciric2022templateflow}.
+\subsubsection*{Functional data preprocessing}
+For each of the BOLD runs found per subject (across all tasks and
+sessions), the following preprocessing was performed. First, a reference
+volume and its skull-stripped version were generated using a custom
+methodology of \emph{fMRIPrep}. Head-motion parameters with respect to
+the BOLD reference (transformation matrices, and six corresponding
+rotation and translation parameters) are estimated before any
+spatiotemporal filtering using \texttt{mcflirt} \citep[FSL
+,][]{mcflirt}. BOLD runs were slice-time corrected 0.5 of
+slice acquisition range using \texttt{3dTshift} from AFNI
+\citep[RRID:SCR\_005927]{afni}. The BOLD time-series (including
+slice-timing correction when applied) were resampled onto their
+original, native space by applying the transforms to correct for
+head-motion. These resampled BOLD time-series will be referred to as
+\emph{preprocessed BOLD in original space}, or just \emph{preprocessed
+BOLD}. The BOLD reference was then co-registered to the T1w reference
+using \texttt{mri\_coreg} (FreeSurfer) followed by \texttt{flirt}
+\citep[FSL ,][]{flirt} with the boundary-based registration \citep{bbr}
+cost-function. Co-registration was configured with six degrees of
+freedom. Several confounding time-series were calculated based on the
+\emph{preprocessed BOLD}: framewise displacement (FD), DVARS and three
+region-wise global signals. FD was computed using two formulations
+following Power (absolute sum of relative motions,
+\citet{power_fd_dvars}) and Jenkinson (relative root mean square
+displacement between affines, \citet{mcflirt}). FD and DVARS are
+calculated for each functional run, both using their implementations in
+\emph{Nipype} \citep[following the definitions by][]{power_fd_dvars}.
+The three global signals are extracted within the CSF, the WM, and the
+whole-brain masks. Additionally, a set of physiological regressors were
+extracted to allow for component-based noise correction
+\citep[\emph{CompCor},][]{compcor}. Principal components are estimated
+after high-pass filtering the \emph{preprocessed BOLD} time-series
+(using a discrete cosine filter with 128s cut-off) for the two
+\emph{CompCor} variants: temporal (tCompCor) and anatomical (aCompCor).
+tCompCor components are then calculated from the top 2\% variable voxels
+within the brain mask. For aCompCor, three probabilistic masks (CSF, WM
+and combined CSF+WM) are generated in anatomical space. A mask of pixels that
+likely contain a volume fraction of GM is subtracted from the aCompCor
+masks. This mask is obtained by thresholding the corresponding partial
+volume map at 0.05, and it ensures components are not extracted from
+voxels containing a minimal fraction of GM. Finally, these masks are
+resampled into BOLD space and binarized by thresholding at 0.99. Components are also calculated separately
+within the WM and CSF masks. For each CompCor decomposition, the
+\emph{k} components with the largest singular values are retained, such
+that the retained components' time series are sufficient to explain 50
+percent of variance across the nuisance mask (CSF, WM, combined, or
+temporal). The remaining components are dropped from consideration. The
+head-motion estimates calculated in the correction step were also placed
+within the corresponding confounds file. The confound time series
+derived from head motion estimates and global signals were expanded with
+the inclusion of temporal derivatives and quadratic terms for each
+\citep{satterthwaite_2013}. Frames that exceeded a threshold
+of 0.5 mm FD or 1.5 standardized DVARS were annotated as motion
+outliers. Additional nuisance time-series are calculated by means of
+principal components analysis of the signal found within a thin band
+(\emph{crown}) of voxels around the edge of the brain, as proposed by
+\citep{patriat_improved_2017}. The BOLD time-series were resampled into
+standard space, generating a \emph{preprocessed BOLD run in
+MNI152NLin2009cAsym space}. First, a reference volume and its
+skull-stripped version were generated using a custom methodology of
+\emph{fMRIPrep}. All resamplings can be performed with \emph{a single
+interpolation step} by composing all the pertinent transformations
+(i.e.~head-motion transform matrices, susceptibility distortion
+correction when available, and co-registrations to anatomical and output
+spaces). Gridded (volumetric) resamplings were performed using
+\texttt{antsApplyTransforms} (ANTs), configured with Lanczos
+interpolation to minimize the smoothing effects of other kernels
+\citep{lanczos}. Non-gridded (surface) resamplings were performed using
+\texttt{mri\_vol2surf} (FreeSurfer).
+
+Many internal operations of \emph{fMRIPrep} use \emph{Nilearn} 0.10.1
+\citep[RRID:SCR\_001362]{abraham2014machine}, mostly within the functional
+processing workflow. For more details of the pipeline, see
+\href{https://fmriprep.readthedocs.io/en/latest/workflows.html}{the
+section corresponding to workflows in \emph{fMRIPrep}'s documentation}.
+
+\textbf{Copyright Waiver:} The above boilerplate text was automatically generated by \emph{fMRIPrep} with the express intention that users should copy and paste
+this text into their manuscripts \emph{unchanged}. It is released under
+the \href{https://creativecommons.org/publicdomain/zero/1.0/}{CC0}
+license.
+
+After checking the fmriPrep outputs, XX subjects that all have T1 scans, with at least one RS run were included in the final set of the analyses. XX of them have DWI, XX of them have T2, and XX of them have XX RS runs. Among the stroke patients, All of them have the acute scan, XX of them have sub-acute and XX of them have chronic. XX of them have ischemic stroke and the remaining are hemorrhagic.  XX of them have a subcortical stroke. XX of them already have the mask drawn in the  MNI space. Of controls, XX of them have the first session, XX of them have the second, and XX of them have the third run. The mean age of groups in the first scan and the sex distribution. 
+
+Outputs of \emph{fMRIPrep} were further cleaned from nuisance regressors using a custom script written in MATLAB. 36P strategy that is described in \citet{satterthwaite_2013} was adapted to choose the regressors of no interest. Specifically, 6 motion regressors, mean signal from white matter and CSF, their first derivatives, power, and power of the first derivatives were chosen. In addition, mean frame-wise displacement and a linear trend were added to the model. These regressors were removed from the fMRI data using a multiple linear regression model and the residuals were saved. A band-pass filter between 0.01-0.1 was applied to the residuals. 
+
+
+%
+%\textbf{Copyright Waiver:} The above boilerplate text was automatically generated by fMRIPrep with
+%the express intention that users should copy and paste this text into
+%their manuscripts \emph{unchanged}. It is released under the
+%\href{https://creativecommons.org/publicdomain/zero/1.0/}{CC0} license.
+
+
+
+%\hypertarget{references}{%
+%\subsubsection{References}\label{references}}
+
+%\hypertarget{post-processing-of-fmriprep-outputs}{%
+%\subsubsection{Post-processing of fmriprep
+%outputs}\label{post-processing-of-fmriprep-outputs}}
+\begin{comment}
+    The eXtensible Connectivity Pipeline- DCAN (XCP-D)
+\citep{mitigating_2018, satterthwaite_2013} was used to post-process the
+outputs of \emph{fMRIPrep} version 23.1.3
+\citep[RRID:SCR\_016216]{esteban2019fmriprep, esteban2020analysis}.
+XCP-D was built with \emph{Nipype} version 1.8.6
+\citep[RRID:SCR\_002502]{nipype1}. For each of the seven BOLD runs found
+per subject (across all tasks and sessions), the following
+post-processing was performed. In order to identify high-motion outlier
+volumes, framewise displacement was calculated using the formula from
+\citet{power_fd_dvars}, with a head radius of 50 mm. Volumes with
+framewise displacement greater than 0.5 mm were flagged as high-motion
+outliers for the sake of later censoring \citep{power_fd_dvars}. In
+total, 36 nuisance regressors were selected from the preprocessing
+confounds, according to the `36P' strategy. These nuisance regressors
+included six motion parameters, mean global signal, mean white matter
+signal, mean cerebrospinal fluid signal with their temporal derivatives,
+and quadratic expansion of six motion parameters, tissue signals and
+their temporal derivatives \citep{benchmarkp, satterthwaite_2013}.
+Finally, linear trend and intercept terms were added to the regressors
+prior to denoising. Nuisance regressors were regressed from the BOLD data
+using linear regression, as implemented in \emph{Nilearn}. Any volumes
+censored earlier in the workflow were then interpolated in the residual
+time series produced by the regression. The interpolated time series were
+then band-pass filtered using a(n) second-order Butterworth filter, in
+order to retain signals between 0.01-0.08 Hz. The filtered, interpolated
+time series were then re-censored to remove high-motion outlier volumes. Postprocessing derivatives from multi-run tasks were then concatenated
+across runs.
+
+%Processed functional timeseries were extracted from the residual BOLD
+%signal with \emph{Nilearn's} \emph{NiftiLabelsMasker} for the following
+%atlases: the Schaefer 17-network 100, 200, 300, 400, 500, 600, 700, 800,
+%900, and 1000 parcel atlas \citep{Schaefer_2017}, %the Glasser atlas
+%\citep{Glasser_2016}, the Gordon atlas \citep{Gordon_2014}, and the Tian
+%subcortical atlas \citep{tian2020topographic}. Corresponding pair-wise
+%functional connectivity between all regions was computed for each atlas,
+%which was operationalized as the Pearson's correlation of each parcel's
+%unsmoothed timeseries. In cases of partial coverage, uncovered voxels
+%(values of all zeros or NaNs) were either ignored (when the parcel had
+%\textgreater{}1.0\% coverage) or were set to zero (when the parcel had
+%\textless{}1.0\% coverage).
+
+
+
+Many internal operations of \emph{XCP-D} use \emph{AFNI}
+\citep{cox1996afni, cox1997software}, \emph{ANTS}
+\citep{avants2009advanced}, \emph{TemplateFlow} version 0.8.1
+\citep{ciric2022templateflow}, \emph{matplotlib} version 3.4.3
+\citep{hunter2007matplotlib}, \emph{Nibabel} version 5.0.1
+\citep{brett_matthew_2022_6658382}, \emph{Nilearn} version 0.10.1
+\citep{abraham2014machine}, \emph{numpy} version 1.22.4
+\citep{harris2020array}, \emph{pybids} version 0.15.5
+\citep{yarkoni2019pybids}, and \emph{scipy} version 1.10.1
+\citep{2020SciPy-NMeth}. For more details, see the \emph{XCP-D} website
+(https://xcp-d.readthedocs.io).
+
+\end{comment}
+
+
+
+
+\section*{Results}
+
+Up to three levels of \textbf{subheading} are permitted. Subheadings should not be numbered.
+
+\subsection*{Subsection}
+
+Example text under a subsection. Bulleted lists may be used where appropriate, e.g.
+
+\begin{itemize}
+\item First item
+\item Second item
+\end{itemize}
+
+\subsubsection*{Third-level section}
+ 
+Topical subheadings are allowed.
+
+\section*{Discussion}
+
+The Discussion should be succinct and must not contain subheadings.
+
+\printbibliography
+
+
+
+\noindent LaTeX formats citations and references automatically using the bibliography records in your .bib file, which you can edit via the project menu. Use the cite command for an inline citation, e.g.  \cite{Hao:gidmaps:2014}.
+
+For data citations of datasets uploaded to e.g. \emph{figshare}, please use the \verb|howpublished| option in the bib entry to specify the platform and the link, as in the \verb|Hao:gidmaps:2014| example in the sample bibliography file.
+
+\section*{Acknowledgements (not compulsory)}
+
+Acknowledgements should be brief, and should not include thanks to anonymous referees and editors, or effusive comments. Grant or contribution numbers may be acknowledged.
+
+\section*{Author contributions statement}
+
+Must include all authors, identified by initials, for example:
+A.A. conceived the experiment(s),  A.A. and B.A. conducted the experiment(s), C.A. and D.A. analysed the results.  All authors reviewed the manuscript. 
+
+\section*{Additional information}
+
+To include, in this order: \textbf{Accession codes} (where applicable); \textbf{Competing interests} (mandatory statement). 
+
+The corresponding author is responsible for submitting a \href{http://www.nature.com/srep/policies/index.html#competing}{competing interests statement} on behalf of all authors of the paper. This statement must be included in the submitted article file.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\linewidth]{stream}
+\caption{Legend (350 words max). Example legend text.}
+\label{fig:stream}
+\end{figure}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+Condition & n & p \\
+\hline
+A & 5 & 0.1 \\
+\hline
+B & 10 & 0.01 \\
+\hline
+\end{tabular}
+\caption{\label{tab:example}Legend (350 words max). Example legend text.}
+\end{table}
+
+Figures and tables can be referenced in LaTeX using the ref command, e.g. Figure \ref{fig:stream} and Table \ref{tab:example}.
+
+\end{document}
